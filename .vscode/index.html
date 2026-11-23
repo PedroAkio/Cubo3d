@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cubo Mágico 3D — Three.js</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">PROJETO • COMPUTAÇÃO GRÁFICA</span>
+        <h1>Cubo Mágico <span>3D</span></h1>
+        <p>Gire as faces, embaralhe e tente resolver o cubo.</p>
+      </div>
+      <div class="status">
+        <span class="status-dot"></span>
+        <span id="statusText">Cubo resolvido</span>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <div class="scene-wrap">
+        <div id="scene" aria-label="Visualização interativa do cubo mágico 3D"></div>
+        <div class="scene-hint">Arraste para orbitar • Scroll para zoom</div>
+      </div>
+
+      <aside class="panel">
+        <section class="panel-section">
+          <h2>Movimentos</h2>
+          <p class="muted">Clique em uma face para girá-la em 90°. Use <kbd>Shift</kbd> para inverter.</p>
+          <div class="move-grid">
+            <button data-move="U">U <small>Topo</small></button>
+            <button data-move="D">D <small>Base</small></button>
+            <button data-move="L">L <small>Esquerda</small></button>
+            <button data-move="R">R <small>Direita</small></button>
+            <button data-move="F">F <small>Frente</small></button>
+            <button data-move="B">B <small>Trás</small></button>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>Controles</h2>
+          <div class="action-buttons">
+            <button id="scrambleBtn" class="primary">Embaralhar</button>
+            <button id="resetBtn" class="secondary">Reiniciar</button>
+          </div>
+          <div class="counter">
+            <span>Movimentos realizados</span>
+            <strong id="moveCount">0</strong>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>Teclas</h2>
+          <div class="key-list">
+            <span><kbd>U</kbd> <kbd>D</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>F</kbd> <kbd>B</kbd></span>
+            <span>Girar a face correspondente</span>
+            <span><kbd>Shift</kbd> + tecla</span>
+            <span>Giro anti-horário</span>
+          </div>
+        </section>
+
+        <section class="panel-section palette-section">
+          <h2>Tema de cores</h2>
+          <div class="palette">
+            <button class="theme-choice active" data-theme="classic">Clássico</button>
+            <button class="theme-choice" data-theme="pastel">Pastel</button>
+            <button class="theme-choice" data-theme="neon">Neon</button>
+          </div>
+        </section>
+        <p class="footnote">Câmera 3D com órbita • Animação suave • 6 faces rotacionáveis</p>
+      </aside>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
